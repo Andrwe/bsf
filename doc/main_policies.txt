@@ -1,0 +1,41 @@
+This document describes the policies bsf modules and bsf itself have to follow.
+
+__Documentation__
+
+- All documentation is placed in <BSF-DIR>/doc/.
+- The documentation of a module has to be <BSF-DIR>/doc/<modulename>.txt
+- Following points have to be documented for each module:
+  - list of functionalities provided by the module
+  - list of "public" functions with short description, arguments and return-codes
+  - dependencies needed (external programs, other modules)
+  - arguments which can be provided on module load and its description
+
+__Implementation Steps__
+
+1. Create a list of the functionalities you want to add with a module.
+2. Check whether any of the functionalities are already implemented.
+3. Check whether the functionalities can be implemented in the same module or should be seperated.
+   e.g.: the module debug shouldn't implement a function getWebsite
+4. Analyse functionalities and write down how they could be implemented using spoken language
+5. Implement and document function by function
+
+__Coding Guidelines__
+
+- above of each function has to be a short description of the function
+- fucntions start at the beginning of a line
+- each function has to be introduced by 'function' and is followed by '()' e.g. function myFunction()
+- function names are CamelCase with first letter lower case e.g. myFunction()
+- each function has to return either a code or a value to be able to write scripts with high capability of error-handling
+- name of functions and variables should be sort of descriptive but also short
+  a - is not a descriptive name
+  debuglevel - is descriptive but a bit long
+  dbglvl - is descriptive and short enough
+- global variables has to be upper case e.g. VARIABLE
+- local variables has to be lower case e.g. variable
+- variables should be as limited as possible
+  if a variable is only needed in one function it should be defined in this function using 'local' 
+  if 2 or more functions use the same variable but the value may be different they are 2 different variables and should be defined 'local'
+- indentation length is 2 spaces
+- each block has to be indented (function, if/else, while, for, ...)
+
+- if a commandline is used 3 times or more it might be worth writing a function for it
