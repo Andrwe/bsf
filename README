@@ -1,0 +1,11 @@
+BSF - Bash Scripting Framework
+
+BSF is a framework for bash providing common functions used in a lot of scripts.
+It is as modular as possible so you can choose which functionalities you want to load into your script and which not.
+
+Too use this framework just get the whole bsf and add the folloowing into your script:
+
+source bsf.sh <module1:parameter1:parameter2> <module2> ...
+
+
+For more information have a look into the doc folder or run 'bsf.sh -h'.
