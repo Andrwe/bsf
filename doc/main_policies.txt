@@ -1,5 +1,6 @@
 This document describes the policies bsf modules and bsf itself have to follow.
 
+
 __Documentation__
 
 - All documentation is placed in <BSF-DIR>/doc/.
@@ -10,6 +11,7 @@ __Documentation__
   - dependencies needed (external programs, other modules)
   - arguments which can be provided on module load and its description
 
+
 __Implementation Steps__
 
 1. Create a list of the functionalities you want to add with a module.
@@ -18,6 +20,7 @@ __Implementation Steps__
    e.g.: the module debug shouldn't implement a function getWebsite
 4. Analyse functionalities and write down how they could be implemented using spoken language
 5. Implement and document function by function
+
 
 __Coding Guidelines__
 
@@ -52,4 +55,26 @@ Branches:
 - feature-*
 - hotfix-*
 
+Short description of workflow:
+The main development is pushed to develop branch.
+Each time a version is considered stable it's merged into master branch and taged with the appropriate version.
+New features are introduced using a dedicated feature branch for it. It is merged into develop branch using non-fast-forward merging (--no-ff) when the feature is implemented and the feature branch is closed after the merge.
+Hotfixes of a release are developed in a dedicated hotfix branch. This is merged with master branch producing a new tag and with develop branch. After the merge it is closed.
+Every commit independent of the branch has to be signed ('git commit -s') which is why every contributor has to add his/her e-mail address to his/her git config.
+Until it's decided otherwise I (Andrwe Lord Weber) am in charge of managing the releases.
 
+branch nameing conventions:
+new features - feature-<feature name> (e.g. feature-debug_module)
+hotfix - hotfix-<target-tagnumber> (e.g. hotfix-1.2.1)
+
+
+__Version Conventions__
+
+Main version (0.) is increased everytime either 9 major version bumps were done or there is a change in handling major functionalities.
+
+Major version (0.3.) introduce new features.
+A major version bump may also just contain many bug fixes which didn't comply with the definition of hotfixes (see below).
+
+Minor version (0.3.2) is only created and increased by hotfixes.
+Hotfixes don't introduce features. They just remove bugs which were found and are critical to security or usage.
+Every new major version has the default minor version of 0.
