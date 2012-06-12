@@ -1,0 +1,33 @@
+# Dependencies (m: -> depends on other module)
+DEPENDS=( 'modules to test' )
+
+# Description of module
+DESC="Module for testing all modules"
+
+# Global arguments of module
+ARGS=(  )
+
+# Public function of module
+FUNCTIONS=( "runTest='runs all tests'" )
+
+# Arguments of function (element number equals number of function in $FUNCTIONS
+FUNCARGS=( "module='Module to be tested'" )
+
+# Return codes and values of function (element number equals number of function in $FUNCTIONS, 'echo -e'-syntax is supported
+RETURNS=( "0 - success\nn - error-code of failed program of function1" )
+
+###########################################
+#  Some notes
+#
+# called: bsf.sh test <module>
+# return: return code of module test script
+# output: output of module test script
+# functions:
+#   -runFunction() <module-function>
+#   -checkDepends() <dependencies[@]>
+#   +runTest() <module>
+#
+# - use loadModule()
+# - should call all public functions of the module (=$FUNCTIONS)
+# - has to know all arguments for each function call (=$FUNCARGS)
+# 

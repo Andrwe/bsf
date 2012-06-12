@@ -1,5 +1,6 @@
 This document describes the policies bsf modules and bsf itself have to follow.
 
+
 __Documentation__
 
 - All documentation is placed in <BSF-DIR>/doc/.
@@ -9,6 +10,18 @@ __Documentation__
   - list of "public" functions with short description, arguments and return-codes
   - dependencies needed (external programs, other modules)
   - arguments which can be provided on module load and its description
+- for an example of the notation see <BSF-DIR>/doc/example-doc.txt
+
+
+__Testing__
+
+- Each module has to have a script testing it.
+- Test scripts are placed in <BSF-DIR>/test/.
+- The test scripts are named test-<module>.sh.
+- Each test script has to implement the function startTest() which runs all functions necessary to test the module.
+- The return code of startTest() has to be 0 on success with empty output or >0 on failure with a descriptive error message.
+- for an example see <BSF-DIR>/test/test-example.txt
+
 
 __Implementation Steps__
 
@@ -17,7 +30,9 @@ __Implementation Steps__
 3. Check whether the functionalities can be implemented in the same module or should be seperated.
    e.g.: the module debug shouldn't implement a function getWebsite
 4. Analyse functionalities and write down how they could be implemented using spoken language
-5. Implement and document function by function
+5. Create a test script which is able to test functionality by functionality
+6. Implement and document function by function
+
 
 __Coding Guidelines__
 
@@ -54,5 +69,29 @@ Branches:
 - feature-*
 - hotfix-*
 
+
+Short description of workflow:
+The main development is pushed to develop branch.
+Each time a version is considered stable it's merged into master branch and taged with the appropriate version.
+New features are introduced using a dedicated feature branch for it. It is merged into develop branch using non-fast-forward merging (--no-ff) when the feature is implemented and the feature branch is closed after the merge.
+Hotfixes of a release are developed in a dedicated hotfix branch. This is merged with master branch producing a new tag and with develop branch. After the merge it is closed.
+Every commit independent of the branch has to be signed ('git commit -s') which is why every contributor has to add his/her e-mail address to his/her git config.
+Until it's decided otherwise I (Andrwe Lord Weber) am in charge of managing the releases.
+
+branch nameing conventions:
+new features - feature-<feature name> (e.g. feature-debug_module)
+hotfix - hotfix-<target-tagnumber> (e.g. hotfix-1.2.1)
+
+
+__Version Conventions__
+
+Main version (0.) is increased everytime either 9 major version bumps were done or there is a change in handling major functionalities.
+
+Major version (0.3.) introduce new features.
+A major version bump may also just contain many bug fixes which didn't comply with the definition of hotfixes (see below).
+
+Minor version (0.3.2) is only created and increased by hotfixes.
+Hotfixes don't introduce features. They just remove bugs which were found and are critical to security or usage.
+Every new major version has the default minor version of 0.
 
 # vim: :et:ai:ts=2

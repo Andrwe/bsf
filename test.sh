@@ -1,7 +1,10 @@
-source bsf.sh debug
+#!/bin/bash
 
-echo ${BSFPATH}
-echo $bla
+function checkDepends()
+
+function runFunction()
+
+function runTest()
 
 
 # vim: :et:ai:ts=2
