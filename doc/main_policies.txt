@@ -42,4 +42,17 @@ __Coding Guidelines__
 
 - if a command is used 3 times or more it might be worth writing a function for it
 
+
+__Branches and Workflow__
+
+The branch management is based on http://nvie.com/posts/a-successful-git-branching-model/ .
+Here http://www.silverwareconsulting.com/index.cfm/2010/9/13/A-Git-Workflow-for-Open-Source-Collaboration--Part-I--Introduction you can read about the basis of the wanted workflow.
+
+Branches:
+- master
+- develop
+- feature-*
+- hotfix-*
+
+
 # vim: :et:ai:ts=2
