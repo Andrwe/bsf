@@ -9,3 +9,6 @@ source bsf.sh <module1:parameter1:parameter2> <module2> ...
 
 
 For more information have a look into the doc folder or run 'bsf.sh -h'.
+
+
+# vim: :et:ai:ts=2

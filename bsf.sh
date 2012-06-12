@@ -39,12 +39,13 @@
 COREPATH="$(readlink -f $0)"
 BSFPATH="${COREPATH%/*}"
 CONFIGPATH="${BSFPATH}/bsf.config"
+MODULEPATH="${BSFPATH}/module/"
 
 while getopts ":h?" opt
 do
   case "${opt}" in
     "h"|"?")
-      for module in "${BSFPATH}/"*
+      for module in "${MODULEPATH}/"*
       do
         echo $(basename ${module%.sh})
       done
@@ -56,5 +57,7 @@ done
 
 for module in $@
 do
-  source "${BSFPATH}/${module}.sh"
+  source "${MODULEPATH}/${module}.sh"
 done
+
+# vim:et:ai:ts=2

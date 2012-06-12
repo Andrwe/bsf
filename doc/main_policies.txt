@@ -30,12 +30,16 @@ __Coding Guidelines__
   a - is not a descriptive name
   debuglevel - is descriptive but a bit long
   dbglvl - is descriptive and short enough
-- global variables has to be upper case e.g. VARIABLE
-- local variables has to be lower case e.g. variable
+- global variables have to be upper case e.g. VARIABLE
+- local variables have to be lower case e.g. variable
 - variables should be as limited as possible
   if a variable is only needed in one function it should be defined in this function using 'local' 
   if 2 or more functions use the same variable but the value may be different they are 2 different variables and should be defined 'local'
 - indentation length is 2 spaces
+  a suitable modeline for vim would be:
+    # vim: :et:ai:ts=2
 - each block has to be indented (function, if/else, while, for, ...)
 
-- if a commandline is used 3 times or more it might be worth writing a function for it
+- if a command is used 3 times or more it might be worth writing a function for it
+
+# vim: :et:ai:ts=2

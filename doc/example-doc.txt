@@ -10,3 +10,5 @@ FUNCTIONS=( "function1='description of function1'" "function2='description of fu
 FUNCARGS=( "function1arg1='description':function1arg2='description'" "function2arg1='description'" )
 # Return codes and values of function (element number equals number of function in $FUNCTIONS, 'echo -e'-syntax is supported
 RETURNS=( "0 - success\nn - error-code of failed program of function1" "0 - success\nn - error-code\nstring - resulting output" )
+
+# vim: :et:ai:ts=2
